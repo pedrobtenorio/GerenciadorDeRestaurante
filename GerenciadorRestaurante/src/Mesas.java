@@ -1,22 +1,25 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import funcionarios.Funcionario;
+
 
 
 
 public class Mesas{
 	Scanner input = new Scanner(System.in);
 	private String identificacao, pedidos;
-	private boolean ocupada, suja;
+	private boolean ocupada, suja, pendente;
 	private double conta;
 	
-	public Mesas(String id, String pedidos, boolean oc, boolean suja, double conta ) 
+	public Mesas(String id, String pedidos, boolean oc, boolean suja, double conta, boolean pendente) 
 	{
 		this.identificacao=id;
 		this.pedidos=pedidos;
 		this.ocupada=oc;
 		this.suja=suja;
 		this.conta=conta;
+		this.pendente=pendente;
 	}
 	
 
@@ -49,6 +52,17 @@ public class Mesas{
 		return;
 	}
 	
+	public boolean getPendente()
+	{
+		return this.pendente;
+	}
+	
+	public void setPendente(boolean status)
+	{
+		this.pendente=status;
+		return;
+	}
+	
 	public void refreshall()
 	{
 		this.identificacao=null;
@@ -75,6 +89,11 @@ public class Mesas{
 				if(s.verOcupada()==false)
 				{
 					System.out.println("nao tem ninguem nessa mesa");
+					return caixa;
+				}
+				if(s.pendente)
+				{
+					System.out.println("os pedidos dessa mesa nao foram entregues logo voce nao pode fecha-la");
 					return caixa;
 				}
 				dinheiro=s.getConta();
@@ -147,41 +166,67 @@ public class Mesas{
 	
 	public void anotarPedido(ArrayList<Mesas> mesa, ArrayList<Cardapio> cardapio)
 	{
-		String prato, str;
-		double preco=0;
-		boolean achou =false;
-		System.out.println("insira o nome da comida que a mesa quer");
-    	prato=input.nextLine();
-    	for (Cardapio s : cardapio ) 
+		boolean pedindo = true;
+		while(pedindo)
 		{
-			if(s.getnomeDoPrato().equals(prato))
+			String prato, str, digito;
+			double preco=0;
+			boolean achou =false;
+			boolean mesaExiste=false;
+			System.out.println("insira o nome da comida que a mesa quer");
+	    	prato=input.nextLine();
+	    	for (Cardapio s : cardapio ) 
 			{
-				achou=true;
-				preco=s.getPreco();
+				if(s.getnomeDoPrato().equals(prato))
+				{
+					achou=true;
+					preco=s.getPreco();
+					
+				}
+			}
+	    	if(achou==false)
+	    	{
+	    		System.out.println("essa comida nao foi achada no cardapio.");
+	        	
+	    	}
+	 
+	    	else
+	    	{
+	    		System.out.println("insira a identificacao da mesa que esta pedindo a comida");
+		    	str=input.nextLine();
+				for (Mesas s : mesa ) 
+				{
+					if(s.getidentificacao().equals(str))
+					{
+						mesaExiste=true;
+						s.setPedidos(prato);
+						s.setConta(preco);
+						System.out.println("pedido adicionado");
+						
+					}
+				}
+				if(!mesaExiste)
+				{
+					System.out.println("essa mesa nao foi encontrada");
+				}
 				
-			}
-		}
-    	if(achou==false)
-    	{
-    		System.out.println("essa comida nao foi achada no cardapio.");
-        	return;
-    	}
- 
-    	
-    	System.out.println("insira a identificacao da mesa que esta pedindo a comida");
-    	str=input.nextLine();
-		for (Mesas s : mesa ) 
-		{
-			if(s.getidentificacao().equals(str))
+	    	}
+	    	
+			
+			System.out.println("se ainda deseja continuar pedindo digite 1");
+			digito=input.nextLine();
+			if(digito.equals("1"))
 			{
-				s.setPedidos(prato);
-				s.setConta(preco);
-				System.out.println("pedido adicionado");
-				return;
+				pedindo=true;
+			}
+			else
+			{
+				pedindo=false;
 			}
 		}
-		System.out.println("essa mesa nao foi encontrada");
+		
 		return;
+		
 	}
 	
 	private boolean verSuja()
@@ -197,6 +242,59 @@ public class Mesas{
 	{
 		this.ocupada=true;
 		return;
+	}
+	
+	public void entregarPedido(ArrayList<cozinha> pedidos, ArrayList<Funcionario> funcionarios, ArrayList<Mesas> mesa) {
+		boolean flag=false;
+		boolean mesaStatus=false;
+		for (Funcionario s : funcionarios )
+		{
+			if(s.getClasse().equals("Garcom"))
+			{
+				flag=true;
+			}
+		}
+		if(flag==false)
+		{
+			System.out.println("Voce nao tem Garcoms, contrate algum");
+			return;
+		}
+		String id;
+		System.out.println("digite a identificacao da mesa que voce deseja servir");
+		id=input.nextLine();
+		for(cozinha s : pedidos)
+		{
+			if(s.getIdMesa().equals(id))
+			{
+				if(s.getStatus().equals("Pronto"))
+				{
+			
+					mesaStatus=true;
+					if (mesaStatus=true)
+					{
+						for(Mesas a : mesa)
+						{
+							if(a.getidentificacao().equals(id))
+							{
+								a.setPendente(false);
+								System.out.println("pedido entregue na mesa");
+							}
+						}
+						return;
+					}				
+					
+				}
+				else
+				{
+					
+					System.out.println("o pedido nao esta pronto");
+				}
+				return;
+			}
+		}
+		System.out.println("esse pedido nao esta na cozinha");
+		return;
+		
 	}
 	
 	public void ocuparMesa(ArrayList<Mesas> mesa)

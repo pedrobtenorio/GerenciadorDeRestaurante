@@ -27,7 +27,7 @@ public class Gerenciador{
         ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
         ArrayList<Mesas> mesa = new ArrayList<Mesas>();
         ArrayList<cozinha> pedidos= new ArrayList<cozinha>();
-        Mesas gerenciadorMesa= new Mesas(null, " ", true, true, 0);
+        Mesas gerenciadorMesa= new Mesas(null, " ", true, true, 0, true);
         cozinha gerenciadorCozinha= new cozinha(null,null,null);
         Mesas mesasdobar[]=new Mesas[100];
         Cozinheiro cozinheiros[]=new Cozinheiro[100];
@@ -45,17 +45,29 @@ public class Gerenciador{
             cozinheiros[i]=new Cozinheiro(null, null, 0, null);
             garcom[i]=new Garcom(null, null, 0, null);
             sg[i]=new SG(null, null, 0, null);
-            mesasdobar[i]= new Mesas(null, " ", true, true, 0);
+            mesasdobar[i]= new Mesas(null, " ", true, true, 0, true);
             pedidoarray[i]=new cozinha(null, null, null);
             
         }
-
+        boolean loginsucesso=false;
         System.out.println("Bem vindo a pagina de administracao de restaurantes");
-        System.out.println("Digite seu login");
-        loginDigitado=input.nextLine();
-        System.out.println("digite sua senha");
-        senhaDigitada=input.nextLine();
-        if(senha.equals(senhaDigitada)&& login.equals(loginDigitado))
+        while(loginsucesso==false)
+        {
+        	System.out.println("digite seu usuario");
+        	loginDigitado=input.nextLine();
+            System.out.println("digite sua senha");
+            senhaDigitada=input.nextLine();
+            if(senha.equals(senhaDigitada)&& login.equals(loginDigitado))
+            {
+            	loginsucesso=true;
+            }
+            else
+            {
+            	System.out.println("usuario ou senha incorretos");
+            }
+            
+        }
+        if(loginsucesso)
         {
         	  System.out.println("Crie seu restaurante!");
 	          System.out.println("insira um nome");
@@ -107,7 +119,7 @@ public class Gerenciador{
 	        		}
 	        		else if(opt.equals("8"))
 	        		{
-	        			
+	        			System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        		}
 	        		else
 	        		{
@@ -143,7 +155,7 @@ public class Gerenciador{
 	        		}
 	        		else if(opt.equals("6"))
 	        		{
-	        			
+	        			System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        		}
 	        		else
 	        		{
@@ -175,11 +187,11 @@ public class Gerenciador{
 	        		}
 	        		else if(opt.equals("5"))
 	        		{
-	        			 //servir pratos
+	        			 gerenciadorMesa.entregarPedido(pedidos, funcionarios, mesa);
 	        		}
 	        		else if(opt.equals("6"))
 	        		{
-	        			 
+	        			 System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        		}	        	
 	        		else
 	        		{
@@ -200,7 +212,7 @@ public class Gerenciador{
 	        			}
 	        			else if(opt.equals("3"))
 	        			{
-	        				
+	        				System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        			}
 	        			else
 	        			{
@@ -221,7 +233,7 @@ public class Gerenciador{
 	        		}
 	        		else if(opt.equals("3"))
 	        		{
-	        			
+	        			System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        		}
 	        		else
 	        		{
@@ -235,6 +247,7 @@ public class Gerenciador{
 	        		{
 	        			System.out.println("digite o preco da conta de luz");
 	        			luz=input.nextDouble();
+	        			input.nextLine();
 	        			if(luz>dinheiro)
 	        			{
 	        				System.out.println("voce nao tem dinheiro para pagar a conta");
@@ -299,7 +312,7 @@ public class Gerenciador{
 	        	}
 	        	else if(opt.equals("9"))
 	        	{
-	        		continue;
+	        		System.out.println("\n\n\n Voltando para menu anterio \n\n\n");
 	        	}
 	        	else
 	        	{

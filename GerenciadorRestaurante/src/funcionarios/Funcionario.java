@@ -17,6 +17,11 @@ public abstract class Funcionario
 		this.classe=clas;
 	}
 	
+	public void setNome(String nome)
+	{
+		this.nome=nome;
+	}
+	
 	public abstract void trabalhar();
 	
 	public void demitirFuncionario(ArrayList<Funcionario> funcionarios)
@@ -28,6 +33,7 @@ public abstract class Funcionario
 			if(s.getID().equals(id))
 			{
 				
+				s.setNome(null);
 				funcionarios.remove(s);
 				System.out.println("Funcionario demitido");
 				return;

@@ -39,17 +39,32 @@ public class Restaurante
     		System.out.println("insira o nome do prato");
     		nomeprato=input.nextLine();
     		comida1[i].setnomeDoPrato(nomeprato);
-    		System.out.println("insira a descrição do prato");
+    		System.out.println("insira a descricao do prato");
     		descricao=input.nextLine();
     		comida1[i].setDescricao(descricao);
-    		System.out.println("insira o preço");
-    		preco=input.nextDouble();
-    		input.nextLine();
-    		comida1[i].setPreco(preco);
-    		System.out.println("insira o peso");
-    		pesoOuVolume=input.nextDouble();
-    		input.nextLine();
-    		comida1[i].setPeso(pesoOuVolume);
+    		
+    		boolean erro=true;
+    		do {
+    			try
+    			{
+    				System.out.println("insira o preco");
+    				preco=input.nextDouble();
+    	    		input.nextLine();
+    	    		comida1[i].setPreco(preco);
+    	    		System.out.println("insira o peso");
+    	    		pesoOuVolume=input.nextDouble();
+    	    		input.nextLine();
+    	    		comida1[i].setPeso(pesoOuVolume);
+    	    		erro=false;
+    			}
+    			catch(Exception e)
+    			{
+    				System.out.println("voce precisa digitar um numero");
+    				 input.next();
+    			}
+    			
+    		}while(erro);
+    		
     		cardapio.add(comida1[i]);
         }
         public void removeComida(Comida[] comida1, ArrayList<Cardapio> cardapio )
@@ -80,19 +95,32 @@ public class Restaurante
         	String descricao, test;
             double preco;
         	int i;
-        	System.out.println("insira o nome da comida que você deseja editar");
+        	System.out.println("insira o nome da comida que voce deseja editar");
         	test=input.nextLine();
         	for(i=0; i<=99; i++)
     		{
     			if(test.equals(comida1[i].getnomeDoPrato()))
     			{
-    				System.out.println("insira a nova descrição");
+    				System.out.println("insira a nova descricao");
     				descricao=input.nextLine();
     	    		comida1[i].setDescricao(descricao);
-    	    		System.out.println("insira o novo preço");
-    				preco=input.nextDouble();
-    				input.nextLine();
-    	    		comida1[i].setPreco(preco);
+    	    		boolean erro=true;
+    	    		do {
+    	    			try
+    	    			{
+    	    				System.out.println("insira o novo preco");
+    	    				preco=input.nextDouble();
+    	    	    		input.nextLine();
+    	    	    		comida1[i].setPreco(preco);
+    	    	    		erro=false;
+    	    			}
+    	    			catch(Exception e)
+    	    			{
+    	    				System.out.println("voce precisa digitar um numero");
+    	    				 input.next();
+    	    			}
+    	    			
+    	    		}while(erro);
     				return;
     			}
     		}
@@ -122,14 +150,27 @@ public class Restaurante
     		System.out.println("insira a descrição da bebida");
     		descricao=input.nextLine();
     		bebida1[i].setDescricao(descricao);
-    		System.out.println("insira o preço");
-    		preco=input.nextDouble();
-    		input.nextLine();
-    		bebida1[i].setPreco(preco);
-    		System.out.println("insira o volume");
-    		pesoOuVolume=input.nextDouble();
-    		input.nextLine();
-    		bebida1[i].setVolume(pesoOuVolume);
+    		boolean erro=true;
+    		do {
+    			try
+    			{
+    				System.out.println("insira o preco");
+    				preco=input.nextDouble();
+    	    		input.nextLine();
+    	    		bebida1[i].setPreco(preco);
+    	    		System.out.println("insira o peso");
+    	    		pesoOuVolume=input.nextDouble();
+    	    		input.nextLine();
+    	    		bebida1[i].setVolume(pesoOuVolume);
+    	    		erro=false;
+    			}
+    			catch(Exception e)
+    			{
+    				System.out.println("voce precisa digitar um numero");
+    				 input.next();
+    			}
+    			
+    		}while(erro);
     		cardapio.add(bebida1[i]);
         }
         
@@ -160,7 +201,7 @@ public class Restaurante
         	String descricao, test;
             double preco;
         	int i;
-        	System.out.println("insira o nome da bebida que você deseja editar");
+        	System.out.println("insira o nome da bebida que voce deseja editar");
         	test=input.nextLine();
         	for(i=0; i<=99; i++)
     		{
@@ -169,10 +210,23 @@ public class Restaurante
     				System.out.println("insira a nova descrição");
     				descricao=input.nextLine();
     	    		bebida1[i].setDescricao(descricao);
-    	    		System.out.println("insira o novo preço");
-    				preco=input.nextDouble();
-    				input.nextLine();
-    	    		bebida1[i].setPreco(preco);
+    	    		boolean erro=true;
+    	    		do {
+    	    			try
+    	    			{
+    	    				System.out.println("insira o novo preco");
+    	    				preco=input.nextDouble();
+    	    	    		input.nextLine();
+    	    	    		bebida1[i].setPreco(preco);
+    	    	    		erro=false;
+    	    			}
+    	    			catch(Exception e)
+    	    			{
+    	    				System.out.println("voce precisa digitar um numero");
+    	    				 input.next();
+    	    			}
+    	    			
+    	    		}while(erro);
     				return;
     			}
     		}

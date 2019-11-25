@@ -33,7 +33,7 @@ public class Cozinheiro extends Funcionario
 		}
 		
 		String nome, CPF;
-		double salario;
+		double salario=0;
 		Scanner input = new Scanner(System.in);
 		System.out.println("Insira o nome do Cozinheiro");
 		nome=input.nextLine();
@@ -47,15 +47,30 @@ public class Cozinheiro extends Funcionario
 			}
 			
 		}
-		System.out.println("Insira o Salaraio do Cozinheiro");
-		salario=input.nextDouble();
-		input.nextLine();
-		while(salario<998)
+		boolean erro=true;
+		do
 		{
-			System.out.println("Voce nao pode pagar menos que 998 Rs(salario minimo) para os seus funcionarios!! Insira um novo salario");
-			salario=input.nextDouble();
-			input.nextLine();
-		}
+			try
+			{
+				System.out.println("Insira o Salaraio do Cozinheiro");
+				salario=input.nextDouble();
+				input.nextLine();
+				while(salario<998)
+				{
+					System.out.println("Voce nao pode pagar menos que 998 Rs(salario minimo) para os seus funcionarios!! Insira um novo salario");
+					salario=input.nextDouble();
+					input.nextLine();
+				}
+				erro=false;
+			}
+			catch(Exception e)
+			{
+				System.out.println("voce precisa digitar um numero");
+				 input.next();
+			}
+			
+		}while(erro);
+		
 		
 		cozinheiros[i]= new Cozinheiro(nome, CPF, salario, "Cozinheiro");
 		funcionarios.add(cozinheiros[i]);
