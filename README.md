@@ -16,7 +16,7 @@ FUNCIONALIDADES:
 
 5. Receber feedback dos clientes.
 
-6. Gerenciar mesas: adicionar ou remover mesa, anotar pedidos, alocar clientes para as mesas, servir pratos. *** (ainda falta ("(5) Servir pratos");
+6. Gerenciar mesas: adicionar ou remover mesa, anotar pedidos, alocar clientes para as mesas, servir pratos. *** 
 
 7. Gerenciar caixa: Ver quanto tem no caixa, receber dinheiro do pedido. (o restaurante sempre sera inicializado com 10000,00 R$). ***
 
