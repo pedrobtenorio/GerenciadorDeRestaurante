@@ -14,7 +14,7 @@ FUNCIONALIDADES:
 
 4. Gerenciar funcionários: Contratar, demitir, mudar salario. ***
 
-5. Receber feedback dos clientes.
+5. Limpar mesas.***
 
 6. Gerenciar mesas: adicionar ou remover mesa, anotar pedidos, alocar clientes para as mesas, servir pratos. *** 
 
