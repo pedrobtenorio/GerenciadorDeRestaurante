@@ -11,12 +11,6 @@ public class SG extends Funcionario
 		
 	}
 
-	@Override//Serviços gerais ira limpar as mesas
-	public void trabalhar() {
-		
-		
-		
-	}
 
 
 	public void addSG(SG sg[], ArrayList<Funcionario> funcionarios) {
@@ -34,6 +28,7 @@ public class SG extends Funcionario
 		
 		String nome, CPF;
 		double salario = 0;
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		System.out.println("Insira o nome do sg");
 		nome=input.nextLine();
@@ -71,7 +66,7 @@ public class SG extends Funcionario
 			
 		}while(erro);
 
-		sg[i]= new SG(nome, CPF, salario, "Servicos gerais");
+		sg[i]= new SG(nome, CPF, salario, "SG");
 		funcionarios.add(sg[i]);
 	}
 	

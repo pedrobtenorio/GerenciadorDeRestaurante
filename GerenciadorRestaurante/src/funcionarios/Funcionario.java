@@ -1,9 +1,9 @@
 package funcionarios;
 import java.util.ArrayList;
 import java.util.Scanner;
+import gerenciador.* ;
 
-
-public abstract class Funcionario
+public  class Funcionario
 {
 	private String nome, CPF, classe;
 	private double salario;
@@ -20,9 +20,26 @@ public abstract class Funcionario
 	public void setNome(String nome)
 	{
 		this.nome=nome;
+		return;
 	}
 	
-	public abstract void trabalhar();
+	public void trabalhar(Mesas gerenciador, ArrayList<cozinha> pedidos, ArrayList<Funcionario> funcionarios, ArrayList<Mesas> mesa)
+	{
+		gerenciador.entregarPedido(pedidos, funcionarios, mesa);
+		return;
+	}
+	
+	public void trabalhar(Mesas gerenciadorSG, ArrayList<Mesas> mesa, ArrayList<Funcionario> funcionarios)
+	{
+		gerenciadorSG.limparMesa(funcionarios, mesa);
+		return;
+	}
+	
+	public void trabalhar(cozinha gerenciador, ArrayList<Mesas> mesa, ArrayList<cozinha> pedidos, cozinha pedidoarray[])
+	{
+		gerenciador.colocarEmAndamento(mesa, pedidos, pedidoarray);
+		return;
+	}
 	
 	public void demitirFuncionario(ArrayList<Funcionario> funcionarios)
 	{

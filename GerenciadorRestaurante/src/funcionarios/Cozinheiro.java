@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
+
 public class Cozinheiro extends Funcionario
 {
 
@@ -12,12 +14,9 @@ public class Cozinheiro extends Funcionario
 		
 	}
 
-	@Override//Cozinheiro mudara o status do pedido para pronto e mudar para em andamento
-	public void trabalhar() {
-		
-		
-		
-	}
+	
+
+
 
 	
 	public void addCozinheiro(Cozinheiro cozinheiros[], ArrayList<Funcionario> funcionarios) {
@@ -34,6 +33,7 @@ public class Cozinheiro extends Funcionario
 		
 		String nome, CPF;
 		double salario=0;
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		System.out.println("Insira o nome do Cozinheiro");
 		nome=input.nextLine();

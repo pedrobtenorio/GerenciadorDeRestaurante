@@ -11,12 +11,7 @@ public class Garcom extends Funcionario
 		
 	}
 
-	@Override//garçom entregara os pratos
-	public void trabalhar() {
-		
-		
-		
-	}
+	
 
 	public void addGarcom(Garcom garcom[], ArrayList<Funcionario> funcionarios) {
 		
@@ -33,6 +28,7 @@ public class Garcom extends Funcionario
 		
 		String nome, CPF;
 		double salario = 0;
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		System.out.println("Insira o nome do Garcom");
 		nome=input.nextLine();

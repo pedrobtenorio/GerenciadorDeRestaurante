@@ -71,7 +71,8 @@ public class menus
         System.out.println("(3) Anotar pedido");
         System.out.println("(4) Colocar clientes na mesa");
         System.out.println("(5) Servir pratos");
-        System.out.println("(6) Sair");
+        System.out.println("(6) limpar mesa");
+        System.out.println("(7) Sair");
   
         String opc;
         opc=input.nextLine();
@@ -112,11 +113,9 @@ public class menus
 		System.out.println("Escolha a opcao");
         System.out.println("(1) Mostrar cardapio");
         System.out.println("(2) Mostrar funcionarios");
-        System.out.println("(3) Mostrar estoque");
-        System.out.println("(4) Mostrar mesas");
-        System.out.println("(5) Mostrar caixa");
-        System.out.println("(6) Mostrar cozinha");
-        System.out.println("(7) sair");
+        System.out.println("(3) Mostrar mesas");
+        System.out.println("(4) Mostrar caixa");
+        System.out.println("(5) sair");
         String opc;
         opc=input.nextLine();
         return opc;
