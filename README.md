@@ -2,6 +2,11 @@
 
 # Projeto-OO-P3
 
+#PARA ACESSAR USUARIO = adm SENHA = 12345
+        String login ="adm";
+        String senha="12345";
+       
+
 SISTEMA DE GERENCIAMENTO DE RESTAURANTE
 
 FUNCIONALIDADES:
