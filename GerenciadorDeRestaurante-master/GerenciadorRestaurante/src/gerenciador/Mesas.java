@@ -59,6 +59,13 @@ public class Mesas{
 		return;
 	}
 	
+	private void setPedidos(String pedido) {
+		this.pedidos=this.pedidos.concat(pedido);
+		this.pedidos=this.pedidos.concat("  ");
+		return;
+		
+	}
+	
 	public boolean getOcupado()
 	{
 		return this.ocupada;
@@ -137,12 +144,7 @@ public class Mesas{
 	
 	
 	
-	private void setPedidos(String pedido) {
-		this.pedidos=this.pedidos.concat(pedido);
-		this.pedidos=this.pedidos.concat("  ");
-		return;
-		
-	}
+	
 	
 	public String getPedido()
 	{

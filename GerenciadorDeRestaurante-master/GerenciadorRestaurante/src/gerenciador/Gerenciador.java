@@ -36,6 +36,7 @@ public class Gerenciador{
         Mesas mesasdobar[]=new Mesas[100];
         Cozinheiro cozinheiros[]=new Cozinheiro[100];
         Garcom garcom[]=new Garcom[100];
+        Funcionario gerenciadorFuncionario= new Funcionario(null, null, 0, null);
         SG sg[]=new SG[100];
         cozinha pedidoarray[] = new cozinha[100]; 
         int  i;     
@@ -188,7 +189,7 @@ public class Gerenciador{
 	        		}
 	        		else if(opt.equals("5"))
 	        		{
-	        			 garcom[0].trabalhar(gerenciadorMesa, pedidos, funcionarios, mesa);
+	        			 gerenciadorFuncionario.trabalhar(gerenciadorMesa, pedidos, funcionarios, mesa);
 	        		}
 	        		
 	        		else if(opt.equals("6"))
@@ -227,7 +228,7 @@ public class Gerenciador{
 	        		opt=meusmenus.menu5();
 	        		if(opt.equals("1"))
 	        		{
-	        			cozinheiros[0].trabalhar(gerenciadorCozinha, mesa, pedidos, pedidoarray, funcionarios);
+	        			gerenciadorFuncionario.trabalhar(gerenciadorCozinha, mesa, pedidos, pedidoarray, funcionarios);
 	        		}
 	        		else if(opt.equals("2"))
 	        		{
