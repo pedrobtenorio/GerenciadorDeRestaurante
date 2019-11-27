@@ -49,7 +49,7 @@ public class Gerenciador{
             cozinheiros[i]=new Cozinheiro(null, null, 0, null);
             garcom[i]=new Garcom(null, null, 0, null);
             sg[i]=new SG(null, null, 0, null);
-            mesasdobar[i]= new Mesas(null, " ", true, true, 0, true);
+            mesasdobar[i]= new Mesas(null, " ", false, true, 0, true);
             pedidoarray[i]=new cozinha(null, null, null);
             
         }
