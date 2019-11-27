@@ -1,6 +1,7 @@
 # GerenciadorDeRestaurante
 
 # Projeto-OO-P3
+Os pacotes source e binarios se encontram na pasta "GerenciadorRestaurante", Gerenciador.java é o arquivo main
 
 #PARA ACESSAR USUARIO = adm SENHA = 12345
         
